@@ -1,6 +1,6 @@
-const some1 = require('./some-1/index');
-const some2 = require('./some-1/some-2/index');
-const some3 = require('./some-1/some-2/some-3/index');
+const some1 = require('./some-1');
+const some2 = require('./some-1/some-2');
+const some3 = require('./some-1/some-2/some-3');
 
 const ARG_REVERSE_ORDER = 'reverse-order';
 
