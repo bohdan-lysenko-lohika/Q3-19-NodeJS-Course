@@ -11,8 +11,8 @@ function uploadFile(req, res, next) {
   const { filename = 'output' } = req.query;
 
   // const rs = fs.createReadStream('./file-to-read-jpg');
-  const rs = fs.createReadStream(path.resolve(__dirname, './file-to-read-text'));
-  const ws = fs.createWriteStream(path.resolve(__dirname, `./${filename}`));
+  const rs = fs.createReadStream(path.resolve(__dirname, '../file-to-read-text'));
+  const ws = fs.createWriteStream(path.resolve(__dirname, `../${filename}`));
   const mimeStream = new MimeStream();
 
   const ts = new Transform({
