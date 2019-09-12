@@ -1,0 +1,4 @@
+Домашка:
+1. Написать круд с помощью typescript+nest
+2*. Добавить (typeorm/sequilize/mongoose)+(mongoDB/postgres or whateverSQL)
+3**. Запускать через docker-compose

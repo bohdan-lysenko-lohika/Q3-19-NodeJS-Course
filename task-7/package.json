@@ -1,0 +1,7 @@
+{
+  "name": "task-7",
+  "version": "1.0.0",
+  "dependencies": {
+    "@nestjs/cli": "^6.6.4"
+  }
+}

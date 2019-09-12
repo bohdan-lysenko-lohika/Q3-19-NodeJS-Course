@@ -1,0 +1,40 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./../backend.Dockerfile
+    image: backend
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./backend:/app/backend:cached
+      - node_modules_backend:/app/backend/node_modules/
+      - yarn_cache:/usr/local/share/.cache/
+    ports:
+      - 3000:3000
+    command: sh -c 'echo "Waiting for yarn install ..."
+      && yarn install
+      && echo "Start project ..."
+      && yarn run start'
+  db:
+    build:
+      context: .
+      dockerfile: ./db.Dockerfile
+    image: db
+    stdin_open: true
+    tty: true
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - mysql_datavolume:/var/lib/mysql/
+      - ./init.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
+    ports:
+      - "127.0.0.1:3307:3306"
+
+volumes:
+  node_modules_backend:
+  yarn_cache:
+  mysql_datavolume:
